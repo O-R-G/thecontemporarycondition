@@ -55,6 +55,7 @@ void setup() {
 
 void draw() {
     background(0);
+    drawHollows();
     noFill();
     stroke(255);
 
@@ -92,6 +93,31 @@ void draw() {
     strokeWeight(5);    // hr
     line(x, x, cos(ha) * hl + x, sin(ha) * hl + y);
     */
+}
+
+
+// draw checkerboard
+
+void drawHollows() {
+    noStroke();
+    int color1 = 0;       // * fix * these as data type color
+    int color2 = 50;
+    int counter = 0;
+    int boxes = 10;
+    // int boxsize = width/boxes;
+    int boxsize = 20;
+    for (int x = 0; x < width; x+=boxsize) {
+        if (counter % 2 == 0) fill(color1);
+        else fill(color2);
+        for (int y = 0; y < height; y+=boxsize) {
+            if (counter % 2 == 0) fill(color2);
+            else fill(color1);
+            rect(x, y, boxsize, boxsize);
+            counter++;
+        }
+        rect(x, y, boxsize, boxsize);
+        counter++;
+    }
 }
 
 
@@ -188,7 +214,6 @@ int checkMillis(int thisms, int thissweepspeed) {
     println("sweepspeed : " + thissweepspeed);
     return thisms;
 }
-
 
 // utility
 
