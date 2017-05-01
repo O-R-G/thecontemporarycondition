@@ -26,8 +26,6 @@ void setup() {
     size(480, 480);
     frameRate(60);
     noCursor();
-
-    stroke(0);
     smooth();
 	
 	x = width / 2;
